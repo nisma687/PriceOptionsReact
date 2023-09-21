@@ -32,13 +32,14 @@ const Phones = () => {
             {
                
                
-                <BarChart width={600} height={400} data={phones}>
+                <BarChart width={1200} height={400} data={phones}>
                     <XAxis 
                     className="text-black"
                     dataKey="name" stroke="#8884d8
                     " />
                     <YAxis />
                   <Bar dataKey="price" fill="#8884d8" />
+                  <Tooltip></Tooltip>
                 </BarChart>
             }           
             
