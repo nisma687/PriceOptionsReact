@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { BarChart, Bar,  XAxis, YAxis,  Tooltip} from 'recharts';
 // import Phone from "../Phone/Phone";
+import { Audio } from  'react-loader-spinner';
 
 const Phones = () => {
     const[phones, setPhones] = useState([]);
+    const[loading, setLoading] = useState(true);
     useEffect(()=>{
         // fetch('https://openapi.programming-hero.com/api/phones?search=iphone')
         // .then(res=>res.json())
@@ -22,11 +24,30 @@ const Phones = () => {
             })
             console.log(phoneWithFakeData);
             setPhones(phoneWithFakeData);
+            setLoading(false);
 
         })
     },[]);
     return (
         <div className="bg-black mt-12 text-white">
+            {/*means loading jodi sotto hoy tokhn dekhabe  */}
+        {
+           loading &&  <div>
+            <Audio
+                height = "80"
+                width = "80"
+                radius = "9"
+                color = 'green'
+                ariaLabel = 'three-dots-loading'     
+                wrapperStyle
+                wrapperClass
+             /> 
+           </div>
+        }
+            
+            
+            
+            
             <h1 className="text-5xl mb-2">Phones:{phones.length}</h1>
             <p className="text-2xl mb-2">Bar chart of phones</p>
             {
